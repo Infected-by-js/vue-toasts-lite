@@ -1,0 +1,172 @@
+@import "./variables";
+@import "./animations";
+
+.toasts-lite__toast-container {
+  position: fixed;
+  z-index: 9999;
+  margin: 10px;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 12px;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.toasts-lite__toast {
+  font-family: var(--toasts-lite-font-family);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--toasts-lite-bg);
+  color: var(--toasts-lite-text);
+  border: 1px solid var(--toasts-lite-border);
+  box-shadow: var(--toasts-lite-shadow) 0px 0px 10px;
+  min-width: 100px;
+  max-width: 1200px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  pointer-events: auto;
+  text-overflow: ellipsis;
+}
+
+.toasts-lite__icon {
+  margin-right: 12px;
+}
+
+.toasts-lite__top-left {
+  top: 0;
+  left: 0;
+}
+
+.toasts-lite__top-center {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 80vw;
+}
+
+.toasts-lite__top-right {
+  top: 0;
+  right: 0;
+}
+
+.toasts-lite__bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.toasts-lite__bottom-center {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.toasts-lite__bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+.toasts-lite__middle-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ICONS */
+.toasts-lite__success {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: var(--toasts-lite-success);
+  position: relative;
+  opacity: 0;
+  animation: scaleAnimation 0.3s cubic-bezier(0.75, 0.885, 0.32, 1.275) forwards;
+  animation-delay: 100ms;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="black"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>');
+    -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="black"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>');
+
+    background-color: var(--toasts-lite-icon-color);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.toasts-lite__error {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: var(--toasts-lite-error);
+  position: relative;
+  opacity: 0;
+  animation: scaleAnimation 0.3s cubic-bezier(0.75, 0.885, 0.32, 1.275) forwards;
+  animation-delay: 100ms;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="4" stroke="black"><path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6l-12 12" /></svg>');
+    -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="4" stroke="black"><path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6l-12 12" /></svg>');
+
+    background-color: var(--toasts-lite-icon-color);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.toasts-lite__warn {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: var(--toasts-lite-warn);
+  position: relative;
+  opacity: 0;
+  animation: scaleAnimation 0.3s cubic-bezier(0.75, 0.885, 0.32, 1.275) forwards;
+  animation-delay: 100ms;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="5" stroke="currentColor" ><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" /></svg>');
+    -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="5" stroke="currentColor" ><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" /></svg>');
+
+    background-color: var(--toasts-lite-icon-color);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.toasts-lite__loading {
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+  border: 2px solid;
+  border-radius: 100%;
+  border-color: var(--toasts-lite-loading-border-main);
+  border-right-color: var(--toasts-lite-loading-border-bg);
+  animation: loadingRotate 1s linear infinite;
+}

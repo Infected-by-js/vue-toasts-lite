@@ -1,0 +1,40 @@
+{
+  "name": "@infectedbyjs/vue-toasts-lite",
+  "version": "0.1.0",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vue-toasts-lite.umd.js",
+  "module": "./dist/vue-toasts-lite.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-toasts-lite.es.js",
+      "require": "./dist/vue-toasts-lite.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.0",
+    "typescript": "^5.8.3",
+    "vite": "^5.0.0",
+    "vue": "^3.0.0"
+  },
+  "keywords": [
+    "vue",
+    "toast",
+    "notification",
+    "vue3"
+  ],
+  "author": "infectedbyjs",
+  "license": "MIT",
+  "description": "Lightweight toast notifications for Vue 3"
+}
